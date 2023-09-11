@@ -111,7 +111,7 @@ const page = async ({searchParams}) => {
           </Subtitle>
 
         
-        <CalloutCard war={false} mess=''/>
+        
 
 
           <div className=" grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 mt-8 gap-9 ">
