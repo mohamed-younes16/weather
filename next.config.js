@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+    images:{
+        domains:["openweathermap.org","www.weatherbit.io"]
+    },
+    experimental: {
+        serverActions: true,
+    },
+}
 
 module.exports = nextConfig

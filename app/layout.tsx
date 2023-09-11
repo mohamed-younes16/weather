@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className='  overflow-x-hidden bg-gradient-to-br min-h-screen   from-[#394f68] to-[#183B7e]'>
       <body className={inter.className}>{children}</body>
     </html>
   )
