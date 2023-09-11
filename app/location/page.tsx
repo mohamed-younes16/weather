@@ -109,11 +109,6 @@ const page = async ({searchParams}) => {
           Last Update for <span className="font-bold text-blue-900">{data.name} </span>
           on : {new Date(data.dt*1000).toLocaleTimeString( "en-GB",{weekday:"long",month:'long',day:"2-digit"})}
           </Subtitle>
-
-        
-        
-
-
           <div className=" grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 mt-8 gap-9 ">
             <div className="text-3xl col-span-full font-bold flex gap-6">Temprature : <span className=' block animate-bounce'><FaTemperatureHigh/></span>  </div>
             <StatCard color='orange' title=' Tempurature' value={`${data.main.temp}°`}  />
