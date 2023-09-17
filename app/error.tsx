@@ -7,13 +7,10 @@ import { useRouter,usePathname, useSearchParams } from 'next/navigation'
 
 const Error = ({err,res }) => {
     const router =useRouter()
-    const search = useSearchParams()
-    const path = usePathname()
+    
     useEffect(() => {
     console.error(err)
-    }, [
-      
-    ])
+    }, [])
     
 
 

@@ -32,6 +32,8 @@ const Picker = () => {
     const [country , setcountry] = useState<option>(null)
     const [city , setcity] = useState<city>(null)
 
+    const [Loading , setLoading] = useState(false)
+
 
 const countriesoptions : any=  Country.getAllCountries().map(e=>(
   {
@@ -53,6 +55,7 @@ function handlecountry (e: option ){
 
 
 function handlecity (e: city ){
+  setLoading(true)
   setcity(e)
   const params = new URLSearchParams(e.value)
   
@@ -88,7 +91,10 @@ function handlecity (e: city ){
           stateCode: e.stateCode},
           label: e.name,
         }))} 
-         className=" !cursor-pointer" onChange={handlecity} />
+         className="!cursor-pointer" onChange={handlecity} />
+
+{Loading && <div className="mx-auto h-20 w-20 animate-spin border-dotted rounded-full border-8 border-white border-l-0 mt-10   "> </div>}
+
 
     </div> }
   
