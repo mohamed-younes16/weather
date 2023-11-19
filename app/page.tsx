@@ -15,7 +15,7 @@ export default function Home() {
             Powered  Nextjs 13.4, Tailwindcss,Tremor 2.0 , 
             and more  
           </Subtitle>
-            <Card className=" bg-gradient-to-br   mt-12  from-[#394f68] to-[#183B7e]">
+            <Card className=" !bg-gradient-to-br   mt-12  !from-[#394f68] !to-[#183B7e]">
             <Picker/>
           </Card>
       </Card>

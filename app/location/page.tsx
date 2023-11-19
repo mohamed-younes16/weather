@@ -100,7 +100,7 @@ const page = async ({searchParams}) => {
       </div>
 
 
-      <div className="min-h-screen w-screen p-8 dark:bg-slate-600 dark:shadow-blue-200 dark:shadow-inner bg-slate-100">
+      <div className="min-h-screen w-screen p-8 shadow-black dark:!bg-slate-600 dark:!shadow-blue-200 shadow-inner bg-slate-100">
 
           <p className='font-bold text-2xl'>
             Today Overview

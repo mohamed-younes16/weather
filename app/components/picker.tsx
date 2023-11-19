@@ -2,7 +2,7 @@
 
 import { City ,Country } from "country-state-city"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Select from "react-select"
 import { GlobeAsiaAustraliaIcon } from "@heroicons/react/20/solid"
 
@@ -55,12 +55,16 @@ function handlecountry (e: option ){
 
 
 function handlecity (e: city ){
-  setLoading(true)
+  setLoading(  !location.pathname.toString().match(/\/\w+/g)    )
   setcity(e)
   const params = new URLSearchParams(e.value)
   
- router.push(`/location?${params}`)
+router.push(`/location?${params}`)
 }
+useEffect(() => {
+console.log( !location.pathname.toString().match(/\/\w+/g)      )
+
+}, [])
 
 
   return (<>
@@ -93,7 +97,7 @@ function handlecity (e: city ){
         }))} 
          className="!cursor-pointer" onChange={handlecity} />
 
-{Loading && <div className="mx-auto h-20 w-20 animate-spin border-dotted rounded-full border-8 border-white border-l-0 mt-10   "> </div>}
+{  !location.pathname.toString().match(/\/\w+/g)     && Loading && <div className="mx-auto h-20 w-20 animate-spin rounded-full border-8 border-white border-l-transparent mt-10   "/>}
 
 
     </div> }
