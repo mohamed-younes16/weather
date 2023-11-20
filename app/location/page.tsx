@@ -1,5 +1,6 @@
-
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+"use client"
+import  { useEffect, useState } from 'react'
 import Picker from '../components/picker'
 
 import StatCard from '../components/StatCard'
@@ -11,17 +12,30 @@ import { MoonIcon, SunIcon } from '@heroicons/react/20/solid'
 import Charts from '../components/Charts'
 
 
-const page = async ({searchParams}) => {
+const Page =  ({searchParams}) => {
+
+  const [data , setData] =  useState<any>()
+
   const params = searchParams
-  const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${params.latitude}&lon=${params.longitude}&appid=26b5c0062eb190c902a24b0d1b8baed6`,
-  {next:{revalidate:20}})
-  const data =  await res.json()
+
+  useEffect(()=>{
+
+    (async ()=>{
+
+        const res = await (fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${params.latitude}&lon=${params.longitude}&appid=26b5c0062eb190c902a24b0d1b8baed6`,
+  {next:{revalidate:20}}))
+
+   setData(await res.json())
+    })()
+  },[])
+
+
   
 
 
   return (
     <div suppressHydrationWarning className=' flex max-md:flex-col   '>
-
+{data && <>
 
 
       <div className=' p-8 text-white min-w-[20rem] max-lg:min-w-[17rem] '>
@@ -107,7 +121,7 @@ const page = async ({searchParams}) => {
           </p>
           <h2 className=' text-lg dark:text-gray-200 my-8'>
           Last Update for <span className="font-bold text-blue-900">{data.name} </span>
-          on : {new Date(data.dt*1000).toLocaleTimeString( "en-GB",{weekday:"long",month:'long',day:"2-digit"})}
+          on : {new Date(data?.dt*1000).toLocaleTimeString( "en-GB",{weekday:"long",month:'long',day:"2-digit"})}
           </h2>
           <div className=" grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 mt-8 gap-9 ">
             <div className="text-3xl col-span-full font-bold flex gap-6">Temprature : <span className=' block animate-bounce'><FaTemperatureHigh/></span>  </div>
@@ -126,7 +140,7 @@ const page = async ({searchParams}) => {
 
        </div>
 
-        
+        </>}
       
 
     </div>
@@ -134,5 +148,5 @@ const page = async ({searchParams}) => {
   )
 }
 
-export default page
+export default Page
 

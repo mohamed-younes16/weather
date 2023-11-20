@@ -1,3 +1,4 @@
+"use client"
 import Picker from "./components/picker";
 import { Card , Subtitle , } from "@tremor/react"
 
