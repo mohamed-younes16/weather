@@ -18,14 +18,14 @@ export default function RootLayout({
 }) {
   return ( 
  
-     <html lang="en" className=' relative  overflow-x-hidden !bg-gradient-to-br min-h-screen  
-     !from-[#394f68] !to-[#183B7e]'>
+     <html lang="en" >
         <ThemeProvider
     attribute="class"
     defaultTheme="system"
     enableSystem
     disableTransitionOnChange
-  ><body className={inter.className}> 
+  ><body className={`${inter.className}   relative  overflow-x-hidden bg-gradient-to-br min-h-screen  
+  from-[#394f68] to-[#183B7e] dark:to-black`}> 
      <div className="absolute  z-50 top-5 right-5">
           <ModeToggle />
         </div> 

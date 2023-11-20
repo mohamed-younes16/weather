@@ -1,7 +1,7 @@
-import {  Subtitle } from '@tremor/react'
+
 import React from 'react'
 import Picker from '../components/picker'
-import CalloutCard from '../components/CalloutCard'
+
 import StatCard from '../components/StatCard'
 import {BsWind} from "react-icons/bs"
 import {FaTemperatureHigh} from "react-icons/fa"
@@ -105,10 +105,10 @@ const page = async ({searchParams}) => {
           <p className='font-bold text-2xl'>
             Today Overview
           </p>
-          <Subtitle className=' text-lg dark:text-gray-200 mb-8'>
+          <h2 className=' text-lg dark:text-gray-200 my-8'>
           Last Update for <span className="font-bold text-blue-900">{data.name} </span>
           on : {new Date(data.dt*1000).toLocaleTimeString( "en-GB",{weekday:"long",month:'long',day:"2-digit"})}
-          </Subtitle>
+          </h2>
           <div className=" grid grid-cols-3 max-xl:grid-cols-2 max-lg:grid-cols-1 mt-8 gap-9 ">
             <div className="text-3xl col-span-full font-bold flex gap-6">Temprature : <span className=' block animate-bounce'><FaTemperatureHigh/></span>  </div>
             <StatCard color='orange' title=' Tempurature' value={`${data.main.temp}°`}  />
