@@ -7,6 +7,7 @@ import Select from "react-select"
 import { GlobeAsiaAustraliaIcon } from "@heroicons/react/20/solid"
 
 type option= {
+
   value:{
     longitude:string;
     latitude:string;
@@ -48,6 +49,7 @@ const router = useRouter()
 
 
 
+
 function handlecountry (e: option ){
   setcountry(e)
   setcity(null)
@@ -56,24 +58,59 @@ function handlecountry (e: option ){
 
 function handlecity (e: city ){
   setLoading(  !location.pathname.toString().match(/\/\w+/g)    )
+
   setcity(e)
   const params = new URLSearchParams(e.value)
   
 router.push(`/location?${params}`)
 }
-useEffect(() => {
-console.log( !location.pathname.toString().match(/\/\w+/g)      )
+useEffect( () => {
+
+
 
 }, [])
 
 
   return (<>
   <div className="mb-5">
-     <div className="flex gap-4 text-white  items-center mb-4 "> 
+     {/* <div className="flex gap-4 text-white  items-center mb-4 "> 
+
+     <div className=" text-black ">
+      <h6>Country</h6>
+      <CountrySelect
+
+        onChange={(e) => {
+          setCountryid(e.id);
+        }}
+        
+      />
+      <h6>State</h6>
+      <StateSelect
+        countryid={countryid}
+        onChange={async (e) => {
+        
+         const cityList:[] =  await GetCity(countryid, e.id)
+        
+         const cityName = (await  GetState(countryid)).filter(el=>el.id == e.id )[0].name
+            cityList.forEach((el:any)=>{
+          console.log(cityName, el.name);
+
+            (el.name ==  cityName)
+            ? setcity({value:{longitude:el.longitude,latitude:el.latitude,name:e.name,}})
+            :""})
+            console.log(city)
+        }}
+        
+      />
+    
+  
+    </div>
  <GlobeAsiaAustraliaIcon height={30} />
+
  <p>Country </p>
-  </div> 
-    <Select value={country} options={countriesoptions} className=" !cursor-pointer" onChange={handlecountry} />
+  </div>  */}
+    <Select value={country} options={countriesoptions} 
+    className=" !cursor-pointer" onChange={handlecountry} />
 
   </div>
 

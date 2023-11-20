@@ -20,7 +20,7 @@ const page = async ({searchParams}) => {
 
 
   return (
-    <div className=' flex max-md:flex-col   '>
+    <div suppressHydrationWarning className=' flex max-md:flex-col   '>
 
 
 

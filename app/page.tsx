@@ -3,7 +3,7 @@ import { Card , Subtitle , } from "@tremor/react"
 
 export default function Home() {
   return (
-    <main className="px-2 h-screen overflow-x-hidden flex items-center justify-center">
+    <main suppressHydrationWarning className="px-2 h-screen overflow-x-hidden flex items-center justify-center">
      
      <Card decoration="top" className=" flex max-w-4xl  items-center flex-col bg-white" 
       decorationColor="indigo" 
