@@ -16,22 +16,20 @@ const Page = ({ searchParams }) => {
 
   const params = searchParams;
     
-  console.log(   `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${params.latitude}&lon=${params.longitude}&appid=26b5c0062eb190c902a24b0d1b8baed6`)
-
+ 
   useEffect(() => {
 
 
     (async () => {
       const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${params.latitude}&lon=${params.longitude}&appid=26b5c0062eb190c902a24b0d1b8baed6`,
+        `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${params.latitude}&lon=${params.longitude}&appid=${process.env.APP_ID}`,
         { next: { revalidate: 20 } }
       );
 
       setData(await res.json());
     })();
         
-    console.log(   `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${params.latitude}&lon=${params.longitude}&appid=26b5c0062eb190c902a24b0d1b8baed6`)
-
+   
   }, []);
 
   return (
