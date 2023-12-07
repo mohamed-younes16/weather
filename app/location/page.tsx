@@ -15,8 +15,12 @@ const Page = ({ searchParams }) => {
   const [data, setData] = useState<any>();
 
   const params = searchParams;
+    
+  console.log(   `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${params.latitude}&lon=${params.longitude}&appid=26b5c0062eb190c902a24b0d1b8baed6`)
 
   useEffect(() => {
+
+
     (async () => {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${params.latitude}&lon=${params.longitude}&appid=26b5c0062eb190c902a24b0d1b8baed6`,
@@ -25,6 +29,9 @@ const Page = ({ searchParams }) => {
 
       setData(await res.json());
     })();
+        
+    console.log(   `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${params.latitude}&lon=${params.longitude}&appid=26b5c0062eb190c902a24b0d1b8baed6`)
+
   }, []);
 
   return (
